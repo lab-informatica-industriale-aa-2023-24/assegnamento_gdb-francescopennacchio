@@ -24,7 +24,7 @@ void fai_spazio(int posizione, int *vett, int lung)
 
 void inserisci(int nuovo_dato, int num_dati_ord, int *vett)
 { 
-	if (num_dati_ord = 0)  { // il vettore è vuoto, facile
+	if (num_dati_ord == 0)  { // il vettore è vuoto, facile
 		vett[0] = nuovo_dato;
 		return;
 	}
@@ -40,9 +40,9 @@ void inserisci(int nuovo_dato, int num_dati_ord, int *vett)
 	}
 }
 
-void ordina_dati(const int *dati_non_ordinati, int *dati_ordinati)
+void ordina_dati(const int *dati_non_ordinati, int *dati_ordinati, int num_dati)
 {
-	int num_dati = sizeof(dati_non_ordinati) / sizeof(dati_non_ordinati[0]);
+																	//int num_dati = sizeof(dati_non_ordinati) / sizeof(dati_non_ordinati[0]);  //sbagliato
 	for (int i = 0; i < num_dati; ++i)
 		inserisci(dati_non_ordinati[i], i, dati_ordinati);
 }
@@ -62,10 +62,10 @@ int main(int argc, char **argv)
 	}
 	int dati_input[MAX_INPUT] = {0};
 	int dati_ordinati[MAX_INPUT] = {0};
-	int num_dati = 0;
+	int num_dati = argc;
 
 	estrai_dati(argc, argv, dati_input, &num_dati);
-	ordina_dati(dati_input, dati_ordinati);
+	ordina_dati(dati_input, dati_ordinati, num_dati);					//aggiungere numero dati 
 	stampa_vettore(dati_ordinati, num_dati);
 	return 0;
 }
